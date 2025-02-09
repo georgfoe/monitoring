@@ -2,7 +2,7 @@
 FROM rocker/r-ver:latest
 
 # Installiere Abhängigkeiten
-RUN R -e "install.packages('httr', repos='http://cran.us.r-project.org')"
+RUN R -e "install.packages('httr')"
 
 # Arbeitsverzeichnis setzen
 WORKDIR /app
