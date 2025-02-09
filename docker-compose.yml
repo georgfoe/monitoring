@@ -1,0 +1,4 @@
+services:
+  monitoring:
+    image: ghcr.io/georgfoe/monitoring/r-script:latest
+    pull_policy: always
