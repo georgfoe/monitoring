@@ -30,4 +30,4 @@ RUN echo "*/1 * * * * root Rscript /app/main.r" > /etc/cron.d/maincron
 RUN chmod 0644 /etc/cron.d/maincron && crontab /etc/cron.d/maincron
 
 # Starte den Cron-Dienst im Vordergrund
-CMD ["cron", "-f"]
+CMD ["Rscript", "/app/main.r"]
