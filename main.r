@@ -15,4 +15,12 @@ response <- POST(
 )
 }
 
-alert("Jetzt wurde der Remote Conatiner nochmal geupdated.")
+iteration = 0
+
+while (true) {
+
+  alert(sprintf("Iteration Nr. %i", iteration))
+
+}
+
+
