@@ -9,7 +9,7 @@ ntfy_url <- "https://ntfy.georgfoerster.info/alerts"
 # Nachricht senden
 response <- POST(
   url = ntfy_url,
-  body = msg
+  body = msg,
   encode = "raw",
   content_type("text/plain")
 )
