@@ -28,5 +28,5 @@ jobs:
       - name: Trigger Run Workflow
         uses: benc-uk/workflow-dispatch@v1
         with:
-          workflow: run-container.yml
+          workflow: run_container.yaml
           token: ${{ secrets.PAT_TOKEN }}
