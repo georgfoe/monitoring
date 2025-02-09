@@ -1,15 +1,18 @@
 library(httr)
 
+
+alert <- function(msg) {
+
 # ntfy Server-URL
 ntfy_url <- "https://ntfy.georgfoerster.info/alerts"
 
 # Nachricht senden
 response <- POST(
   url = ntfy_url,
-  body = "Testnachricht von R",
+  body = msg
   encode = "raw",
   content_type("text/plain")
 )
+}
 
-# Response prüfen
-print(content(response, as = "text"))
+alert("Die alert Funktion funktioniert")
