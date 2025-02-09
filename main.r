@@ -15,4 +15,4 @@ response <- POST(
 )
 }
 
-alert("Die alert Funktion funktioniert")
+alert("Jetzt wurde der Container geupdated.")
