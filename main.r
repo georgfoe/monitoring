@@ -19,8 +19,9 @@ iteration = 0
 
 while (TRUE) {
 
+  iteration = iteration + 1
   alert(sprintf("Iteration Nr. %i", iteration))
-
+  Sys.sleep(15)
 }
 
 
