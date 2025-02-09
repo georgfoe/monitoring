@@ -17,7 +17,7 @@ response <- POST(
 
 iteration = 0
 
-while (true) {
+while (TRUE) {
 
   alert(sprintf("Iteration Nr. %i", iteration))
 
