@@ -1,20 +1,10 @@
 # Verwende eine einfache R Installation
 FROM rocker/r-ver:latest
 
-# Aktualisiere die Paketlisten
-RUN apt-get update -qq
-
-# Installiere libssl-dev
-RUN apt-get install -y libssl-dev
-
-# Installiere libcurl4-gnutls-dev
-RUN apt-get install -y libcurl4-gnutls-dev
-
-# Installiere zlib1g-dev
-RUN apt-get install -y zlib1g-dev
-
-# Installiere libsodium-dev
-RUN apt-get install -y libsodium-dev
+# Aktualisiere die Paketlisten und installiere benötigte Pakete
+RUN apt-get update -qq && \
+    apt-get install -y libssl-dev libcurl4-gnutls-dev zlib1g-dev libsodium-dev cron && \
+    rm -rf /var/lib/apt/lists/*
 
 # Schreibe die Funktion in die .Rprofile
 RUN echo "install_and_check <- function(pkg) { \
@@ -33,5 +23,11 @@ WORKDIR /app
 # Kopiere das R-Skript
 COPY main.r /app/main.r
 
-# Starte das Skript beim Container-Run
-CMD ["Rscript", "/app/main.r"]
+# Erstelle den Crontab-Eintrag
+RUN echo "*/1 * * * * root Rscript /app/main.r" > /etc/cron.d/maincron
+
+# Setze Berechtigungen für den Crontab
+RUN chmod 0644 /etc/cron.d/maincron && crontab /etc/cron.d/maincron
+
+# Starte den Cron-Dienst im Vordergrund
+CMD ["cron", "-f"]
