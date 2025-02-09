@@ -1,7 +1,7 @@
 library(httr)
 
 # ntfy Server-URL
-ntfy_url <- "https://ntfy.georgfoerster.info/test-topic"
+ntfy_url <- "https://ntfy.georgfoerster.info/alerts"
 
 # Nachricht senden
 response <- POST(
