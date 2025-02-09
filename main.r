@@ -20,7 +20,7 @@ iteration = 0
 while (TRUE) {
 
   iteration = iteration + 1
-  alert(sprintf("Dies ist die Iteration Nr. %i", iteration))
+  alert(sprintf("Dies ist die Iteration Nr. %i !", iteration))
   Sys.sleep(15)
 }
 
