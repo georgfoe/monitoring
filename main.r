@@ -1,14 +1,15 @@
 library(httr)
 
-url <- "https://ntfy.georgfoerster.info/alerts"
-message <- "Hallo Welt!"
+# ntfy Server-URL
+ntfy_url <- "https://ntfy.georgfoerster.info/test-topic"
 
-response <- POST(url, body = message, encode = "text")
+# Nachricht senden
+response <- POST(
+  url = ntfy_url,
+  body = "Testnachricht von R",
+  encode = "raw",
+  content_type("text/plain")
+)
 
-if (status_code(response) == 200) {
-  print("Nachricht erfolgreich gesendet.")
-} else {
-  print(paste("Fehler:", status_code(response)))
-}
-
-#trigger build
+# Response prüfen
+print(content(response, as = "text"))
