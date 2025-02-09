@@ -10,7 +10,7 @@ pipeline {
         stage('Pull Latest Image') {
             steps {
                 script {
-                    sh "docker login ghcr.io -u $GITHUB_ACTOR -p ${GITHUB_PAT}"
+                    sh "docker login ghcr.io -u $(GITHUB_ACTOR) -p ${GITHUB_PAT}"
                     sh "docker pull ${IMAGE_NAME}"
                 }
             }
