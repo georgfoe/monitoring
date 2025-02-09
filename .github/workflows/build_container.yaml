@@ -35,9 +35,3 @@ jobs:
             --cache-to=type=local,dest=/tmp/.buildx-cache \
             --tag ghcr.io/${{ github.repository }}/r-script:latest \
             --push .
-
-      - name: Trigger Run Workflow
-        uses: benc-uk/workflow-dispatch@v1
-        with:
-          workflow: run_container.yaml
-          token: ${{ secrets.PAT_TOKEN }}
