@@ -15,4 +15,4 @@ response <- POST(
 )
 }
 
-alert("Jetzt wurde der Remote Conatiner geupdated.")
+alert("Jetzt wurde der Remote Conatiner nochmal geupdated.")
